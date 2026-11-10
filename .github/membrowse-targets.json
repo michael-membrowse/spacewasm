@@ -1,0 +1,72 @@
+[
+  {
+    "target_name": "riscv32imc",
+    "setup_cmd": "rustup toolchain install stable --profile minimal && rustup default stable && rustup target add riscv32imc-unknown-none-elf",
+    "build_cmd": "CARGO_TARGET_RISCV32IMC_UNKNOWN_NONE_ELF_RUSTFLAGS=\"-C link-arg=-Map=$PWD/target/riscv32imc-unknown-none-elf/release/spacewasm_bench.map\" cargo build --release -p spacewasm_bench --target riscv32imc-unknown-none-elf",
+    "elf": "target/riscv32imc-unknown-none-elf/release/spacewasm_bench",
+    "ld": "crates/spacewasm_bench/memory/riscv32.x",
+    "map_file": "target/riscv32imc-unknown-none-elf/release/spacewasm_bench.map",
+    "linker_vars": "",
+    "skip_sections": ".uninit .heap .stack"
+  },
+  {
+    "target_name": "riscv64gc",
+    "setup_cmd": "rustup toolchain install stable --profile minimal && rustup default stable && rustup target add riscv64gc-unknown-none-elf",
+    "build_cmd": "CARGO_TARGET_RISCV64GC_UNKNOWN_NONE_ELF_RUSTFLAGS=\"-C link-arg=-Map=$PWD/target/riscv64gc-unknown-none-elf/release/spacewasm_bench.map\" cargo build --release -p spacewasm_bench --target riscv64gc-unknown-none-elf",
+    "elf": "target/riscv64gc-unknown-none-elf/release/spacewasm_bench",
+    "ld": "crates/spacewasm_bench/memory/riscv64.x",
+    "map_file": "target/riscv64gc-unknown-none-elf/release/spacewasm_bench.map",
+    "linker_vars": "",
+    "skip_sections": ".uninit .heap .stack"
+  },
+  {
+    "target_name": "thumbv7m-cortex-m4",
+    "setup_cmd": "rustup toolchain install stable --profile minimal && rustup default stable && rustup target add thumbv7m-none-eabi",
+    "build_cmd": "CARGO_TARGET_THUMBV7M_NONE_EABI_RUSTFLAGS=\"-C link-arg=-Map=$PWD/target/thumbv7m-none-eabi/release/spacewasm_bench.map\" cargo build --release -p spacewasm_bench --target thumbv7m-none-eabi",
+    "elf": "target/thumbv7m-none-eabi/release/spacewasm_bench",
+    "ld": "crates/spacewasm_bench/memory/arm.x",
+    "map_file": "target/thumbv7m-none-eabi/release/spacewasm_bench.map",
+    "linker_vars": "",
+    "skip_sections": ""
+  },
+  {
+    "target_name": "thumbv7em-cortex-m4",
+    "setup_cmd": "rustup toolchain install stable --profile minimal && rustup default stable && rustup target add thumbv7em-none-eabihf",
+    "build_cmd": "CARGO_TARGET_THUMBV7EM_NONE_EABIHF_RUSTFLAGS=\"-C link-arg=-Map=$PWD/target/thumbv7em-none-eabihf/release/spacewasm_bench.map\" cargo build --release -p spacewasm_bench --target thumbv7em-none-eabihf",
+    "elf": "target/thumbv7em-none-eabihf/release/spacewasm_bench",
+    "ld": "crates/spacewasm_bench/memory/arm.x",
+    "map_file": "target/thumbv7em-none-eabihf/release/spacewasm_bench.map",
+    "linker_vars": "",
+    "skip_sections": ""
+  },
+  {
+    "target_name": "thumbv7em-cortex-m7-mps2-an500",
+    "setup_cmd": "rustup toolchain install stable --profile minimal && rustup default stable && rustup target add thumbv7em-none-eabihf",
+    "build_cmd": "CARGO_TARGET_DIR=target/cortex-m7 SPACEWASM_BENCH_BOARD=mps2-an500 CARGO_TARGET_THUMBV7EM_NONE_EABIHF_RUSTFLAGS=\"-C target-cpu=cortex-m7 -C link-arg=-Map=$PWD/target/cortex-m7/thumbv7em-none-eabihf/release/spacewasm_bench.map\" cargo build --release -p spacewasm_bench --target thumbv7em-none-eabihf",
+    "elf": "target/cortex-m7/thumbv7em-none-eabihf/release/spacewasm_bench",
+    "ld": "crates/spacewasm_bench/memory/arm-mps2-an500.x",
+    "map_file": "target/cortex-m7/thumbv7em-none-eabihf/release/spacewasm_bench.map",
+    "linker_vars": "",
+    "skip_sections": ""
+  },
+  {
+    "target_name": "linux-x86_64",
+    "setup_cmd": "rustup toolchain install stable --profile minimal && rustup default stable && rustup target add x86_64-unknown-linux-gnu",
+    "build_cmd": "CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_RUSTFLAGS=\"-C link-arg=-Wl,-Map=$PWD/target/x86_64-unknown-linux-gnu/release/spacewasm_bench.map\" cargo build --release -p spacewasm_bench --target x86_64-unknown-linux-gnu",
+    "elf": "target/x86_64-unknown-linux-gnu/release/spacewasm_bench",
+    "ld": "",
+    "map_file": "target/x86_64-unknown-linux-gnu/release/spacewasm_bench.map",
+    "linker_vars": "",
+    "skip_sections": ""
+  },
+  {
+    "target_name": "linux-aarch64",
+    "setup_cmd": "sudo apt-get update && sudo apt-get install -y gcc-aarch64-linux-gnu && rustup toolchain install stable --profile minimal && rustup default stable && rustup target add aarch64-unknown-linux-gnu",
+    "build_cmd": "CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER=aarch64-linux-gnu-gcc CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_RUSTFLAGS=\"-C link-arg=-Wl,-Map=$PWD/target/aarch64-unknown-linux-gnu/release/spacewasm_bench.map\" cargo build --release -p spacewasm_bench --target aarch64-unknown-linux-gnu",
+    "elf": "target/aarch64-unknown-linux-gnu/release/spacewasm_bench",
+    "ld": "",
+    "map_file": "target/aarch64-unknown-linux-gnu/release/spacewasm_bench.map",
+    "linker_vars": "",
+    "skip_sections": ""
+  }
+]

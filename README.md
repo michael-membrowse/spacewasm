@@ -8,6 +8,7 @@
   <a href="https://github.com/nasa/spacewasm/actions/workflows/ci.yml"><img src="https://github.com/nasa/spacewasm/actions/workflows/ci.yml/badge.svg" /></a>
   <a href="https://codecov.io/gh/nasa/spacewasm"><img src="https://codecov.io/gh/nasa/spacewasm/graph/badge.svg?token=3EddiLtM36"/></a>
   <a href="#license"><img src="https://img.shields.io/badge/license-Apache%202.0-blue" alt="license" /></a>
+  <a href="https://membrowse.com/public/nasa/spacewasm"><img src="https://membrowse.com/badge.svg" alt="MemBrowse" /></a>
 </p>
 
 SpaceWasm is an implementation of the [WebAssembly](https://webassembly.org/)
